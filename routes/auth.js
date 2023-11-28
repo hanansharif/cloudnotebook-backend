@@ -8,7 +8,7 @@ const fetchuser = require('../middleware/fetchuser');
 const JWT_SECRET = 'ThisIsAnEffortToUseTheTokems!!!';
 
 
-// ROUTE1: Create a User using: POST "/api/auth/createuser". No Login required
+// ROUTE 1: Create a User using: POST "/api/auth/createuser". No Login required
 router.post('/createuser', [
     body('name', 'Enter a valid name').isLength({ min: 3 }),
     body('email', 'Enter a valid email').isEmail(),
@@ -52,7 +52,7 @@ router.post('/createuser', [
     }
 });
 
-// ROUTE2: Authenicate a User using: POST "/api/auth/login". No login required
+// ROUTE 2: Authenicate a User using: POST "/api/auth/login". No login required
 router.post('/login', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'password cannot be blank').exists(),
@@ -89,7 +89,7 @@ router.post('/login', [
     }
 });
 
-// ROUTE3: Get loggedin User Details using: POST "/api/auth/getuser". Login required
+// ROUTE 3: Get loggedin User Details using: POST "/api/auth/getuser". Login required
 router.post('/getuser', fetchuser, async (req, res) => {
     try {
         userId = req.user.id;
